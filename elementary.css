@@ -1,0 +1,17 @@
+body{
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: rgb(126, 118, 125);
+    color: white;
+    width:50rem;
+}
+img{
+    width: 50rem;
+   
+}
+p{
+    font-size: 25px;
+}
+a{
+font-size: 25px;
+}
