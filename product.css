@@ -1,18 +1,19 @@
 body{
-    background-color: rgb(201, 189, 189);
+    background-color: rgb(163, 106, 106);
+    margin-top: 10%;
     
 
 }
 .product-card{
     background-color: rgb(134, 149, 161);
-    top:0%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 10%;
+    top:50%;
+    margin : 0 auto;
     padding: 1.5rem;
     display: flex;
     flex-direction: row;
-width:70%
+    align-items: center;
+    width:70%;
+    max-width: 100%;
       
 }
 #des{
@@ -34,6 +35,8 @@ button:hover{
     .product-card{
         display: flex;
         flex-direction: column;
+        width: 90%; 
+
     }
     img{
         width:100%

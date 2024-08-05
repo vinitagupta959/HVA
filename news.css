@@ -1,16 +1,193 @@
- nav{
-    background-color: azure;
-    padding: auto;
- }
- ul{
-  display: flex;
+/* iska use default browser ke styles (margin aur padding) ko hatane ke liye */
+body,
+html,
+ul {
+   margin: 0;
+   padding: 0;
+}
 
- }
- li{
-    list-style: none;
- }
- a:hover{
-background-color: black;
-color: aliceblue;
- }
- 
+nav {
+   background-color: #333;
+   padding: 1rem;
+   /*nav  bar ke sare content ko row direction me lane ke liye like search img*/
+   display: flex;
+   /*items ke bich space dene ke liye*/
+   justify-content: space-between;
+   /*Items ko vertically center karta hai navigation bar ke andar.*/
+   align-items: center;
+}
+
+nav ul {
+   /*list ke stylke like bulet points ko hattne ke liye*/
+   list-style-type: none;
+   /* agr hum ise aise nhi likhenge to ul ke ander ki chije row direction me nhi ayega*/
+   display: flex;
+   /*List ke around koi extra space nahi rehta.*/
+   margin: 0;
+}
+
+nav ul li {
+   /* list ke item ke bich space add karne ke liye*/
+   margin: 0 1rem;
+}
+
+nav ul li a {
+   color: #fff;
+   /* <a> tag use karne pe niche jo line ati hai use hatane ke liye*/
+   text-decoration: none;
+   font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+   /* jab koi curser ko nav bar pe leke jay to nich ek line lane ke liye*/
+   text-decoration: underline;
+}
+
+.search-form {
+   display: flex;
+   /* search box ko bicho bich lane ke liye vertically*/
+   align-items: center;
+}
+
+.search-form input[type="text"] {
+   padding: 0.5rem;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   /* input box or button ke bich space add karta hai*/
+   margin-right: 0.5rem;
+}
+
+.search-form button {
+   padding: 0.5rem 1rem;
+   border: none;
+   background-color: #555;
+   color: #fff;
+   border-radius: 4px;
+   /* jab couser search button pr jay to vo finger valo pointer bn jay*/
+   cursor: pointer;
+}
+
+.search-form button:hover {
+   background-color: #777;
+}
+
+h1 {
+   text-align: center;
+   background-color: rgb(224, 215, 224);
+   margin-bottom: 0;
+   margin-top: 0;
+   padding: 0.6rem;
+}
+
+iframe {
+   width: 90%;
+   height: 20rem;
+   margin-left: 5%;
+   margin-right: 10%;
+   margin-top: 2%;
+}
+/* main div ko layout dene ke liye*/
+#main {
+   display: flex;
+   flex-direction: column;
+   margin-left: 15%;
+   margin-right: 15%;
+}
+
+/* Style for the main container */
+#inside2 .container {
+   /* grid layout use karne ke liye*/
+   display: grid;
+   /*Do equal-width columns banata hai.*/
+   grid-template-columns: repeat(2, 1fr);
+    /*grid items ke bich kitna space hoga isliye use karte hai*/
+   gap: 1rem;
+   padding: 1rem;
+}
+
+.section1 {
+   /*Yeh property flex shorthand ka use karti hai jo flex-grow, flex-shrink, aur flex-basis ko define karti hai.*/
+   flex: 1 1 calc(50% - 1rem);
+   display: flex;
+   align-items: center;
+   background-color: #f9f9f9;
+   padding: 1rem;
+   /* Padding inside each section */
+   border: 1px solid #ddd;
+   /* Border for separation */
+   border-radius: 8px;
+   /* Rounded corners */
+   box-sizing: border-box;
+   /* Include padding and border in the element's total width and height */
+}
+.img {
+   width: 50%;
+   /* Make images responsive */
+   height: 75%;
+   /* Maintain aspect ratio */
+   border-radius: 4px;
+   /* Rounded corners for images */
+}
+/*Media query 768px ya usse chhoti screen widths ko target karta hai, jo generally tablets aur mobile devices ke liye */
+@media (max-width: 768px) {
+   nav {
+      flex-direction: column;
+      align-items: flex-start;
+      
+   }
+    /* ise use karne pr jab screen choti hoti jayegi to layout bhi change hoga*/
+   nav ul {
+      flex-direction: column;
+      width: 100%;
+       
+   }
+
+   nav ul li {
+      margin: 0.5rem 0;
+   }
+
+   .search-form {
+      margin-top: 1rem;
+      /* Add space above search form*/
+      width: 100%;
+      justify-content: space-between;
+      
+   }
+
+   .search-form input[type="text"] {
+      flex: 1;
+      /* Allow input to take available space */
+   }
+
+   .search-form button {
+      margin-left: 0.5rem;
+      /* Space between input and button */
+   }
+}
+
+
+@media (max-width: 768px) {
+   #inside2 .container {
+      flex-direction: column;
+      /* Stack items vertically on smaller screens */
+   }
+
+   .section1 {
+      flex-direction: column;
+      /* Stack text and image vertically */
+      align-items: flex-start;
+      /* Align items to the start */
+
+   }
+
+   p {
+      text-align: center;
+   }
+
+   .img {
+      width: 100%;
+      /* Make images full-width on smaller screens */
+      height: auto;
+      /* Maintain aspect ratio */
+   }
+}
