@@ -1,38 +1,51 @@
-body{
-    background-color: ;
+body {
+    background-color: #9eaab4;
     font-family: Arial, sans-serif;
 
 }
-.post-content{
-    background-color: antiquewhite;
-    padding: 1px;
-}
 
-
-h1{
-    color:;
+h1 {
+    color: #440941;
     font-size: 36px;
     font-weight: bold;
     text-align: center;
-
-
+    text-decoration: underline;
 }
-h2{
+
+h2 {
+    color: #b96340;
     font-size: 28px;
     font-weight: bold;
     text-align: left;
-
-}
-.mainhead{
     text-decoration: underline;
 
 }
-p{
+
+.post-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+}
+
+.mainhead {
+    text-decoration: underline;
+
+}
+
+p {
     font-size: 16px;
     line-height: 1.5;
+    color: #333;
 
 
 }
-blockquote{
-    font-style: italic;line-height: 1.5;
+
+blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 10px;
+
 }
