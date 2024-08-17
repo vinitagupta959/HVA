@@ -14,14 +14,14 @@ body {
 }
 header {
     background-color: #0c0e0f;
-    color: #fff;
+    color: #a17777;
     width: 100%;
     padding: 20px;
     text-align: center;
+    background-color: #cc9595;
 }
 header h1 {
     margin-bottom: 10px;
-    background-color: #463434;
     margin-top: 0;
 }
 nav ul {
@@ -29,6 +29,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: space-evenly;
+
 }
 nav ul li{
     margin: 0 25px;
