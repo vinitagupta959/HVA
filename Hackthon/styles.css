@@ -144,6 +144,9 @@ hr {
   white-space: nowrap;
 }
 @media (max-width: 1024px) {
+  h1{
+    font-size: 4.25rem;
+  }
   main {
     margin-left: 5%;
     margin-right: 5%;
@@ -172,9 +175,16 @@ hr {
   }
   .footer {
     flex-direction: column;
+    width: 100%;
+  }
+  hr{
+    width: 100%;
   }
 }
 @media (max-width: 500px) {
+  h1{
+    font-size: 3.25rem;
+  }
   main {
     margin-left: 5%;
     margin-right: 5%;
@@ -203,5 +213,6 @@ hr {
   }
   .footer {
     flex-direction: column;
+    width: 100%;
   }
 }
