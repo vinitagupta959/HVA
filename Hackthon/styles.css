@@ -34,7 +34,6 @@ hr {
   width: 100%;
   max-width: 20.4375rem;
   display: flex;
-  width: 20.4375rem;
   height: 3.8125rem;
   margin: 3rem auto;
 }
@@ -112,19 +111,19 @@ hr {
   opacity: 0.8;
 }
 
-button{
-color:#3b1a1a;
-font-family: Inter;
-font-size: 1rem;
-font-style: normal;
-font-weight: 700;
-line-height: 140%; /* 1.4rem */
-text-decoration-line: underline;
-border:none;
+button {
+  color: #3b1a1a;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 1.4rem */
+  text-decoration-line: underline;
+  border: none;
 }
- .button i {
+.button i {
   text-decoration: underline;
- }
+}
 .grid-item .title,
 .grid-item .description,
 .grid-item .button {
@@ -205,6 +204,9 @@ border:none;
   h1 {
     font-size: 3.25rem;
   }
+  hr {
+    width: 100%;
+  }
   main {
     margin-left: 5%;
     margin-right: 5%;
@@ -234,5 +236,46 @@ border:none;
   .footer {
     flex-direction: column;
     width: 100%;
+  }
+}
+@media (max-width: 300px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+  hr {
+    width: 100%;
+  }
+  main {
+    margin-left: 2%;
+    margin-right: 2%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .search-btn {
+    margin: 1rem 0;
+    width: 100%;
+    height: 2.8125rem;
+    padding: 0.5rem;
+    margin-left:auto;
+  }
+  .search-btn input {
+    width: 9.6875rem;
+    height: 2.58rem;
+    flex-shrink: 0;
+    border: 1px solid #3c3030;
+    opacity: 0.3;
+  }
+
+  .search-btn button {
+    padding: 0.0925rem 0.8125rem 0.3rem 1.375rem;
+    border-radius: 0.0625rem;
+    border: 1px solid #e84848;
+    background: #e84848;
+    text-decoration: none;
+  }
+  .sub-heading {
+    align-self: start;
+    margin-left: 2%;
   }
 }
