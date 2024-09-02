@@ -111,15 +111,20 @@ hr {
   flex-grow: 1;
   opacity: 0.8;
 }
-.button {
-  color: #3c3030;
-  font-family: "Inria Sans";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 140%;
-  border: none;
+
+button{
+color:#3b1a1a;
+font-family: Inter;
+font-size: 1rem;
+font-style: normal;
+font-weight: 700;
+line-height: 140%; /* 1.4rem */
+text-decoration-line: underline;
+border:none;
 }
+ .button i {
+  text-decoration: underline;
+ }
 .grid-item .title,
 .grid-item .description,
 .grid-item .button {
@@ -136,15 +141,30 @@ hr {
 .footer h3 {
   margin: 0;
   margin-right: 5px;
-  white-space: nowrap;
+  color: #3c3030;
+  font-family: "Iowan Old Style";
+  font-size: 0.94344rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 1.32081rem */
+}
+.footer svg {
+  width: 0.68888rem;
+  height: 0.68888rem;
 }
 
 .footer p {
   margin: 0;
   white-space: nowrap;
+  color: #3c3030;
+  font-family: "Inria Serif";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 1.4rem */
 }
 @media (max-width: 1024px) {
-  h1{
+  h1 {
     font-size: 4.25rem;
   }
   main {
@@ -177,12 +197,12 @@ hr {
     flex-direction: column;
     width: 100%;
   }
-  hr{
+  hr {
     width: 100%;
   }
 }
 @media (max-width: 500px) {
-  h1{
+  h1 {
     font-size: 3.25rem;
   }
   main {
