@@ -1,73 +1,131 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0; /*Removes the default padding from all elements.*/
+  padding: 0; /*Removes the default padding from all elements. */
+  box-sizing: border-box;
+  /* Agar box-sizing ka use nahi karenge, toh box ka size border aur padding ko bhi include karega, jo size ko barhane aur layout ko bigadne ka kaaran ban sakta hai. */
+}
+*:focus {
+  outline: none; /* Remove default outline */
+}
+body {
+  background-color: #f0f0f0;
+  position: relative; /* agr hum relative ka use nhi karenge to hum position ki properties like top,left etc ka use nhi kar payenge kyoki iski defalut value "static" hoti hai jiski meaning  unchanging hai*/
+  font-family: "Roboto", sans-serif;
+}
+.navbar {
+  display: flex; /* hume nav row direction me cahhiye tha islie display flex use kiya */
+  position: fixed; /*  keeps the element in the same place relative to the viewport, even when you scroll the page. */
+  top: 0;
+  /* the element will be positioned at the very top of the page, with no space above it. */
+  left: 0; /* the element will be positioned at the very left edge of the page, with no space to its left. */
+  align-items: center; /* Vertically centers items within the flex container.
+ */
+  justify-content: center; /* Horizontally centers items within the flex container.*/
+  width: 100%;
+  /* ye body jo filhal iska parent hai uska full width lega */
+  padding: 0.5rem 1rem;
+  /* Adds padding inside the navigation bar"items ke bich" for spacing. */
+  height: 3rem;
+  background-color: #fff;
+  z-index: 1000;
+  /* iska use karne ke liye hume position property ka use karnna hota hai tbhi ye kam karega. or z-index ka use humne yha pr isliye use kiya ki jab hum scoll kare to content uske niche  se hi jay navbar ke upr se nhi */
+}
+.toggle-btn {
+  width: 2vw;
+  height: 1.5vh;
+  position: relative;
+  /* hume iska use isliye kar rhe kyoki hume iske child ko absolute value deni hai  */
+  cursor: pointer;
+}
+.toggle-btn span {
+  position: absolute;
+  /* hume use top se 50% set kara hai issliye use kiya hai kyoki hume use vaha fixed  karna tha */
+  width: 100%;
+  height: 0.2vh;
+  top: 50%;
+  transform: translateY(
+    -50%
+  ); /*Moves the element up by 50% of its own height to vertically center it*/
+  background: #302e2e;
+}
+.toggle-btn span:nth-child(1) {
+  top: 0; /* Applies only to the first child */
+}
+.toggle-btn span:nth-child(2) {
+  /* Applies only to the second child of the container*/
+  top: 50%;
+  transform: translateY(-50%);
+}
+.toggle-btn span:nth-child(3) {
+  top: 100%;
+  transform: translateY(-100%);
 }
 
-header {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  justify-items: flex-end;
+.navbar img {
+  width: 10vw;
+  height: 6vh;
+  margin-right: 0.5rem;
 }
-
 .search-container {
   display: flex;
   align-items: center;
   max-width: 60%;
-  margin: auto;
+  /* margin: auto; */
   flex: 1;
-  margin-left: 2rem;
+  /* margin-left: 1rem; */
+  height: auto;
+  transform: translateX(10%);
 }
-
 .search-container input {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: none;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
   border: 1px solid #ccc;
+  height: auto; /* Flexible height */
+  min-height: 40px; /* Maintain visibility on small screens */
+  box-sizing: border-box;
 }
 
 .search-container .search-btn {
-  padding: 10px;
-  background-color: #998989;
+  padding: 1rem;
+  background-color: #cfbebe;
   cursor: pointer;
   border: 1px solid #ccc;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-top-left-radius: none;
-  border-bottom-left-radius: none;
-  font-size: 16px;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  font-size: 1rem;
 }
 
 .search-container .mic-btn {
-  padding: 10px;
+  padding: 1rem;
   border: none;
   background-color: transparent;
   cursor: pointer;
-  margin-left: 5px;
+  margin-left: 4px;
   font-size: 24px;
   opacity: 0.5;
 }
-
-.search-container i {
-  color: #606060;
+.logo {
+  height: 6%; /* Height will be 5% of the viewport width */
+  width: 10%; /* Width will be 10% of the viewport width */
+  margin-left: 1rem;
 }
 
 .icons-container {
   display: flex;
   align-items: center;
   margin-left: auto;
+  justify-self: flex-end;
 }
 
 .icons-container button {
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 15px;
-  position: relative;
+  padding-left: 0.9rem;
 }
 
 .icons-container i {
@@ -86,114 +144,315 @@ header {
 .notifications-btn i {
   font-size: 22px;
 }
-
-.logo {
-  height: 30px;
-  margin-left: 0;
-}
-
-.sidebar {
-  position: fixed; /* Fixes the sidebar to the viewport */
-  left: 0;
-  margin-top: 3.5rem;
-  width: 15vw;
-  height: 100vh;
-  background-color: #f8f8f8;
-  border-right: 1px solid #ddd;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.sidebar-top {
-  flex: 1;
-}
-
-.sidebar-bottom {
-  margin-top: auto;
-}
-
-.sidebar-item {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.sidebar-item:hover {
-  background-color: #e0e0e0;
-}
-
-.sidebar-item i {
-  margin-right: 10px;
-}
-
-.sidebar-item p {
-  margin: 0;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  margin-left: 0;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  margin-left: 6rem;
+/* sidebar style */
+.side-bar {
   position: fixed;
-  margin-top: 3.5rem;
+  top: 5rem;
+  left: 0;
+  min-width: 5%;
+  width: 20%;
+  background: #fff;
+  padding-right: 10px;
+  height: 100%;
 }
-
-nav li {
-  list-style: none;
-  padding: 0.5rem;
-  border: 1px solid black;
-  margin-left: 0.5rem;
-  border-radius: 10px;
-  box-sizing: border-box;
-  background-color: #0a0a0a;
-  opacity: 0.8;
-  height: 4vh;
-  font-size: medium;
+.sidebar-item {
+  /* display: block; */
+  width: 100%;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-transform: capitalize;
+  color: #242424;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
   white-space: nowrap;
 }
-nav a {
-  text-decoration: none;
-  color: #e0e0e0;
-  font-weight: 600;
+.sidebar-item i {
+  margin-right: 10px;
+  font-size: 18px;
 }
-.grid-item {
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: #f5f5f5; /* Light background on hover or active */
+  color: #e84848; /* Change text color on hover or active */
+  border-radius: 5px; /* Optional: rounded corners */
+}
+.seperator {
+  border: none;
+  border: 2px solid rgb(0, 0, 0, 0.2);
+  margin: 20px 0;
+}
+/* filter */
+.filters {
+  position: fixed;
+  left: 8rem;
+  top: 4.4rem;
+  width: calc(100% + -7.5rem);
+  height: 60px;
+  background-color: #fff;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 0 20px;
   display: flex;
-  flex-direction: column;
-  margin-left: 50%;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-iframe {
-  border-radius: 10px;
-  width: 250px;
-  height: 150px;
+.filters::-webkit-scrollbar {
+  display: none;
 }
-.grid-item img {
-  width: 20px;
-  height: 20px;
-  border-radius: 40%;
+.fiter-option {
+  flex: 0 0 auto;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: #f0f0f0;
+  border: 1px solid #dbdbdb;
+  text-transform: capitalize;
+  margin-right: 10px;
+  color: #242424;
+  font-size: 15px;
+  cursor: pointer;
 }
-.grid-container {
-  gap: 0.5rem;
-  margin-left: 4.9rem;
-  margin-top: 6rem;
+.fiter-option.active {
+  background-color: #242424;
+  color: #fff;
+}
+/* video-containerideos */
+.video-container {
+  width: calc(100% - 250px);
+  margin-top: 60px; /* Adjust as needed */
+  margin-left: 0; /* Adjust based on sidebar */
+  padding: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  column-gap: 20px;
-  row-gap: 20px;
-  justify-items: center;
-  align-items: stretch;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax value */
+  grid-gap: 20px;
+  overflow-x: hidden;
+}
+.video {
+  min-height: 20%;
+  height: auto;
+  border: transparent;
+}
+.thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.content {
+  width: 100%;
+  height: 10vh;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.channel-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.title {
+  width: 100%;
+
+  height: 40px;
+  overflow: hidden;
+}
+.channel-name {
+  font-size: 14px;
+  margin: 2px 0;
+  color: #979797;
+}
+@media (min-width: 10241px) {
+  .logo {
+    height: 2rem;
+    width: 5rem;
+    margin-left: 1rem;
+    margin-right: auto;
+    object-fit: contain;
+  }
+}
+@media (max-width: 10240px) {
+  .logo {
+    height: 1.5vh;
+    width: 5vw;
+    margin-left: 1rem;
+    margin-right: auto;
+    object-fit: contain;
+  }
+  .search-container input {
+    padding: 0.5rem; /* Reduce padding for smaller screens */
+    font-size: 0.8rem; /* Smaller text size */
+  }
+
+  .search-container .search-btn {
+    padding: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .side-bar {
+    width: 8rem;
+    top: 3rem;
+    margin-left: auto;
+  }
+  .sidebar-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
+    margin-left: auto;
+  }
+  .sidebar-item i {
+    width: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .filters {
+  
+    top:2.9rem;
+    
+  }
+}
+@media (max-width: 700px) {
+  .toggle-btn {
+    width: 1.5rem; /* Adjust width */
+    height: 1rem; /* Adjust height */
+    margin-left: auto;
+  }
+
+  .toggle-btn span {
+    height: 0.3vh; /* Adjust height of lines */
+  }
+
+  .logo {
+    height: auto;
+    width: 4rem;
+    margin-left: 1.9rem;
+    object-fit: contain;
+  }
+
+  .search-container {
+    margin-left: 0;
+    width: 100%; /* Adjust width for full responsiveness */
+    display: flex;
+    justify-content: center; /* Center the search bar */
+    margin-left: 0.5rem;
+  }
+  .icons-container {
+    gap: 0;
+    justify-content: center;
+  }
+
+  .icons-container i {
+    font-size: 1rem;
+  }
+  .side-bar {
+    width: 4.9rem;
+    top: 3rem;
+    margin-left: auto;
+  }
+  .sidebar-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 0.6rem;
+    margin-left: auto;
+    top: 3rem;
+  }
+  .sidebar-item i {
+    width: 3vh;
+    margin-bottom: 0.4rem;
+  }
+  .filters {
+    left: 4.9rem;
+    top:2.9rem;
+    width: calc(100% + 35rem);
+  }
+}
+@media (max-width: 500px) {
+  .toggle-btn {
+    width: 1.2rem; /* Adjust width */
+    height: 1rem; /* Adjust height */
+    margin-left: auto;
+  }
+
+  .toggle-btn span {
+    height: 0.3vh; /* Adjust height of lines */
+  }
+  .logo {
+    height: 5rem;
+    width: 6rem;
+    margin-left: 1rem;
+    object-fit: contain;
+  }
+  .search-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  .search-container input {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    border: 1px solid #ccc;
+    height: auto;
+    min-height: 40px; /* Maintain visibility on small screens */
+  }
+
+  .icons-container {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icons-container i {
+    width: 0.9rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .side-bar{
+    top: 2.9rem;
+  }
+  .filters {
+    top:2.9rem;
+     
+  }
+}
+
+@media (max-width: 350px) {
+  .search-container {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
+  .icons-container {
+    width: 0.7rem;
+    margin-left: 0.8rem;
+    overflow: hidden;
+  }
+
+  .icons-container i {
+    width: 0.7rem;
+    margin-left: auto;
+  }
+  .logo {
+    height: 10rem;
+    width: 5rem;
+    object-fit: contain;
+  }
+  .side-bar {
+    width: 4rem;
+    top: 2.9rem;
+  }
+
+  .sidebar-item {
+    font-size: 0.5rem;
+  }
+
+  
+  .filters {
+    left: 4.1rem;
+  }
 }
