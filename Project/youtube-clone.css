@@ -265,6 +265,44 @@ body {
   margin: 2px 0;
   color: #979797;
 }
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    background-color: #beb7b7;
+    padding: 20px 0;
+    border-top: 1px solid #f5eaea;
+    font-size: 14px;
+    text-align: center;
+    color: #606060;
+    opacity: 0.6;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #050000;
+    margin: 5px 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #000;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 @media (min-width: 10241px) {
   .logo {
     height: 2rem;
