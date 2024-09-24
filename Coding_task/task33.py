@@ -11,8 +11,9 @@ while num>0:
     count+=1
 while num1>0:
     rem=num1%10
-    sum+=rem*count
+    sum+=rem**count
     num1=num1//10
+print(sum)
 if sum==num2:
     print("Yes")
 else:

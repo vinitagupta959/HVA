@@ -8,4 +8,12 @@
 #   ****
 #  *****
 # ******
+num=int(input())
+i=0
+while i<num:
+    i=num
+    j=0
+    while j<i:
+        print(" ",end="")
+        j+=1
 
