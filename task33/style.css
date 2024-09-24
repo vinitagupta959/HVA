@@ -181,10 +181,9 @@ aside nav li i {
 aside nav li:hover {
     background-color: whitesmoke;
 }
-
-#subscriber {
-    font-weight: bold;
-    color: gray;
+.heading-aside{
+    font-weight: 700;
+    color: rgb(22, 22, 22);
     margin-bottom: 10px;
     margin-left: 10px;
     font-family: Arial, Helvetica, sans-serif;
