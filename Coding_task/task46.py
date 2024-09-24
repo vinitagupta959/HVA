@@ -1,0 +1,1 @@
+# You are given an integer array. Find the minimum element of the array.

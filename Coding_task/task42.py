@@ -1,0 +1,1 @@
+# You are given an integer array. You are also given a number. Print the number of times the number appears in the array.

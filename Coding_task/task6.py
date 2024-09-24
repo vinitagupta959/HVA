@@ -1,2 +1,1 @@
-A, B, C=map(int,input().split())
-if A<B
+# Write a program that takes three numbers as input and prints the numbers in ascending order.

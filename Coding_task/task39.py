@@ -1,0 +1,1 @@
+# You are given an integer array. Traverse through the array and print the square for each element.

@@ -1,0 +1,1 @@
+# You are given an integer array. Multiply all the numbers present in the array and print the final product.
