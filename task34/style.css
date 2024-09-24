@@ -7,9 +7,11 @@
   text-decoration: none; /* Links aur elements ki text decoration (jaise underline) ko hata deta hai */
   border: none; /* Buttons aur doosre elements ke default border ko hata deta hai */
   outline: none; /* Focused elements ke aas-paas ka default outline hata deta hai */
-  scroll-behavior: smooth; /* Smooth scrolling enable karta hai, jab scroll hota hai toh scroll smooth lagta hai */
+ 
 
   font-family: sans-serif; /* Document ke liye ek default font family set karta hai */
+ 
+  scroll-behavior: smooth; /* Smooth scrolling enable karta hai, jab scroll hota hai toh scroll smooth lagta hai */
 }
 
 /* Yeh pseudo-class global scope ko target karti hai, yani jo variables yahaan define karenge woh puri stylesheet mein accessible honge. Changes ek jagah par karne se sab jagah update ho jati hai.*/
@@ -111,16 +113,15 @@ span {
 .home-img img {
   position: relative;
   top: 15px;
-  width: 2500px;
-  object-fit: fill;
-  margin-left: 10%;
-  margin-right: 10%;
+  width: 100%;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 100%;
   height: auto;
   display: block;
   box-shadow: 0 0 25px;
   cursor: pointer;
-  height: auto;
 }
 .home-img img:hover {
   transform: scale(1.01);
@@ -471,8 +472,12 @@ footer .copyright {
   }
 }
 @media (max-width: 895px) {
-  *{
-    overflow: hidden;
+  .home {
+    font-size: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    width: 100%;
+    padding-bottom: 0.5rem;
   }
   .home {
     flex-direction: column;
@@ -546,13 +551,13 @@ footer .copyright {
   .intro {
     flex-direction: column;
   }
-
   footer {
     width: 100%;
     padding: 20px 0;
     background-color: var(--main-color);
     z-index: 100;
     text-align: center;
+    overflow: hidden; /* Added to prevent overflow */
   }
   .footer .social {
     padding-bottom: 15px;
