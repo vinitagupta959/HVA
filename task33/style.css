@@ -456,7 +456,7 @@ article {
 .filters{
     position: fixed;
     left: 0px;
-    top: 60px;
+    top: 42px;
     width: calc(100% - 4px);
     height: 60px;
     background-color: #fff;
@@ -595,6 +595,23 @@ article {
     }
 }
 @media (max-width:370px){
+
+    .filters{
+        position: fixed;
+        left: 0px;
+        top: 40px;
+        width: calc(100% - 0px);
+        height: 60px;
+        background-color: #fff;
+        border-top: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden
+      }
+  
     main {
         padding-top: 120px;
         /* position: relative; */
