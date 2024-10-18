@@ -456,7 +456,7 @@ article {
 .filters{
     position: fixed;
     left: 0px;
-    top: 42px;
+    top: 60px;
     width: calc(100% - 4px);
     height: 60px;
     background-color: #fff;
