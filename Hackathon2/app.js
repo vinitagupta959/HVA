@@ -231,6 +231,7 @@ function endGame() {
 
 
 
+
 // Restart game
 function restartGame() {
     player1Score = 0;
