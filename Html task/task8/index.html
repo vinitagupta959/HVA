@@ -1,59 +1,69 @@
 <!DOCTYPE html>
-<html>
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Portfolio</title>
- </head>
-  <body>
-  <header>
-    <h1>Welcome to My Portfolio</h1>
-    <nav>
-      <ul>
-       <li><a href="#">About me</a></li>
-       <li><a href="#">Projects<a></li>
-       <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section id="about me">
-   <h2>About Me</h2>
-   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam incidunt ipsam iusto iste, totam error nulla fugiat nostrum consequuntur modi ut vitae quaerat repellat maiores voluptate, odit natus, magnam sed.</p>
-   <img><img>
-  </section>
-  <section>
-    <ul>
-      <li>
-        <h3>Project 1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime repellendus sapiente animi expedita consequatur quas est cumque ab. Fugit, accusamus. In obcaecati quas, fuga maxime maiores hic voluptatem natus repellat?</p>
-        <a href="#">View project </a>
-      </li>
-      <li>
-        <h3>project 2</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate tenetur est excepturi ab voluptas tempore porro nulla obcaecati, provident nihil unde dicta, totam eum iste optio asperiores commodi perferendis explicabo?</p>
-        <a href="#">View project</a>
-      </li>
-      <li>
-        <h3>project 3</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos nisi laboriosam incidunt, eos nihil accusamus dicta explicabo vero a distinctio magnam veritatis commodi eligendi iure dolores fuga, perferendis voluptate excepturi.</p>
-        <a href="#">View project</a>
-      </li>
-    </ul>
-  </section>
-  <section>
-    <h2>Contact</h2>
-    <form>
-      <label>Name
-        <input type="text" name="name" placeholder="enter your name"></label>
-        <br><br>
-        <label>Email<input type="email" placeholder="enter your email"></label>
-        <br><br>
-          <label>Message<textarea name="Message" placeholder="write a message" rows="4" cols="5"></textarea></label>
-          <br><br>
-          <button type="submit">submit</button>
-          
-        
-    </form>
-  </section>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+</head>
+<body>
+  
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+ 
+    <section id="about-me">
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam incidunt ipsam iusto iste, totam error nulla fugiat nostrum consequuntur modi ut vitae quaerat repellat maiores voluptate, odit natus, magnam sed.</p>
+        <img src="https://i.pinimg.com/736x/ba/dc/9d/badc9d597770b60e66eecc6afe3b1499.jpg" alt="A photo of me" width="150" height="150">
+    </section>
+ 
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li>
+                <h3>Project 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime repellendus sapiente animi expedita consequatur quas est cumque ab. Fugit, accusamus. In obcaecati quas, fuga maxime maiores hic voluptatem natus repellat?</p>
+                <a href="https://project1-link.com" target="_blank">View project</a>
+            </li>
+            <li>
+                <h3>Project 2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate tenetur est excepturi ab voluptas tempore porro nulla obcaecati, provident nihil unde dicta, totam eum iste optio asperiores commodi perferendis explicabo?</p>
+                <a href="https://project2-link.com" target="_blank">View project</a>
+            </li>
+            <li>
+                <h3>Project 3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos nisi laboriosam incidunt, eos nihil accusamus dicta explicabo vero a distinctio magnam veritatis commodi eligendi iure dolores fuga, perferendis voluptate excepturi.</p>
+                <a href="https://project3-link.com" target="_blank">View project</a>
+            </li>
+        </ul>
+    </section>
+
+ 
+    <section id="contact">
+        <h2>Contact</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <br><br>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Write a message" rows="4" cols="50" required></textarea>
+            <br><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</body>
 </html>
