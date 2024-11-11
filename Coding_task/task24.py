@@ -1,4 +1,8 @@
 # Write a program that calculates the sum of all the digits in a given number n.
+# Sample Input: 
+# 1132
+# Sample Output: 
+# 7
 
 num=int(input())
 sum=0

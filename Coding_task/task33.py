@@ -1,4 +1,10 @@
 #  You are given an integer n. Print yes, if it is an Armstrong Number. Print no, if it is not an Armstrong Number.
+# An Armstrong Number is a positive number that equals the sum of its digits, each raised to the power of the number of digits.
+# Sample Input 1: 
+# 1634
+# Sample Output 1: 
+# Yes
+
 
 num=int(input())
 num1=num

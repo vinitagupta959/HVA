@@ -9,7 +9,7 @@ console.log(calculateArea(5,10)); // 50
 function calculateAreaWithDefaults(width=1,height=1){
     return width*height
 }
-console.log(calculateAreaWithDefaults());
+console.log(calculateAreaWithDefaults(5,10));
 
 // c.Rewrite Calculate Area as a Function Expression:
 calculateAreaFunction=function(width,height){

@@ -69,15 +69,21 @@ next_btn.onclick = function(e) {
     e.preventDefault();  // button click hone par uska default behavior rokne ke liye
 //     Player 1 aur Player 2 ke naam input se lete hain.
     const player1Name = document.getElementById('player1').value;
+    // .value ka use input field se value ko fetch karne ke liye hota hai.
     const player2Name = document.getElementById('player2').value;
-    const selectedCategory = document.getElementById('category').value;   
+    const selectedCategory = document.getElementById('category').value;
+    // yaha se category select karne ke liye value fetch kiya gaya hai.
+
+
     // Names ko screen par dikhate hain. Agar naam nahi diya, toh default naam dikhate hain.
     player1NameDisplay.textContent = player1Name || "Player 1";
+    // .textContent ka use kisi element ke text ko change karne ke liye hota hai.
     player2NameDisplay.textContent = player2Name || "Player 2";
     player1 = player1Name || "Player 1";  
     player2 = player2Name || "Player 2";  
     // Names ko local storage mein save kar rhe.
     localStorage.setItem('player1', player1);
+    // .setItem ka use local storage mein data ko store karne ke liye hota hai.
     localStorage.setItem('player2', player2);
     // Category section ko chhupane ke liye aur question box ko dikhane ke liye.
     category_section.style.display = "none";
@@ -93,7 +99,9 @@ function fetchQuestions(category) {
 
     fetch(url)
     .then(response => {
+        // .then ka use promise ke resolve hone par ek specific function ko execute karne ke liye hota hai.
         if (!response.ok) {
+            // .ok ka use response status ko check karne ke liye hota hai.
             throw new Error('Network response was not ok ' + response.statusText);
         }
         return response.json();
@@ -109,6 +117,7 @@ function fetchQuestions(category) {
         } else {
             console.error("No questions found in response:", data);
             alert("No questions found for the selected category.");
+        
         }
     })
     .catch(error => {
@@ -225,7 +234,7 @@ function endGame() {
     console.log("Game Over!", resultBox);
     document.getElementById('result-box').style.display = "block";
     const winner = player1Score > player2Score ? player1 : player2Score > player1Score ? player2 : "It's a tie!";
-    document.getElementById('winner-text').textContent = `${winner} is the winner!`;
+    document.getElementById('winner-text').textContent = winner + " " + "is the winner!";
     document.getElementById('final-score').textContent = `${player1}: ${player1Score}, ${player2}: ${player2Score}`;
 }
 

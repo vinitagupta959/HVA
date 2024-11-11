@@ -1,26 +1,35 @@
-.block-element-default,.block-element-fixed{
+  /* Display: Block */
+.block-element-default, .block-element-fixed {
     display: block;
     border: 2px solid #333;
     padding: 10px;
     margin-bottom: 10px;
 }
-.block-element-fixed{
+
+.block-element-fixed {
     width: 300px;
 }
-.inline-element-default,.inline-element-fixed{
-    display: inline;
-    border:  1px dashed #007BFF;
-    padding: 5px;
-}
-.inline-element-fixed{
-width: 100px;
 
+/* Display: Inline */
+.inline-element-default, .inline-element-fixed {
+    display: inline;
+    border: 1px dashed #007BFF;
+    padding: 5px;
+    margin-right: 10px; /* Added margin for spacing between inline elements */
 }
-.inline-block-element-default,.inline-block-element-fixed{
+
+/* The inline-element-fixed should NOT have width, since inline elements ignore width */
+.inline-element-fixed {
+    width: auto;  /* Not required, but can show that inline elements ignore width */
+}
+
+/* Display: Inline-Block */
+.inline-block-element-default, .inline-block-element-fixed {
     display: inline-block;
-    border:  1px solid #FF5733;
+    border: 1px solid #FF5733;
     padding: 5px;
 }
-.inline-block-element-fixed{
-    width: 156px;
+
+.inline-block-element-fixed {
+    width: 150px; /* Corrected width for inline-block elements */
 }

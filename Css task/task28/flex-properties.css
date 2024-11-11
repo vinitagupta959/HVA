@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    display: 2px dashed black;
+    border: 2px dashed black;
     width: 500px;
     margin: auto;
 }
@@ -15,6 +15,7 @@
     flex-basis: 200px;
     flex-grow: 2;
     flex-shrink: 1;
+    
 }
 .box2{
     flex-basis: 200px;

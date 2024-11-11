@@ -1,6 +1,15 @@
 .float-left{
     float: left;
+    margin-right: 10px;
 }
 .float-right{
     float: right;
+    margin-left: 10px;
+}
+
+.second-paragraph {
+    clear: left;
+}
+.first-paragraph, .second-paragraph{
+    margin: 10px 0;
 }

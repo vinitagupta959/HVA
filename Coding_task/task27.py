@@ -1,13 +1,22 @@
 # You are given two positive integers a and b. Print the GCD or HCF of these two numbers.
-num,num1=map(int,input().split())
+# Sample Input: 
+# 20 16
+# Sample Output: 
+# 4
+
+num=int(input())
+num1=int(input())
 i=1
 high=0
+small=0
 hcf=0
-if num<num1:
+if num>num1:
     high=num
+    small=num1
 else:
     high=num1
-while i<high:
+    small=num
+while i<=small:
     if num%i==0:
         if num1%i==0:
             hcf=i
