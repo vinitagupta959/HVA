@@ -7,5 +7,5 @@ while i<num:
         print("*",end="")
         j+=1
     print()
-    i+=15
+    i+=1
     

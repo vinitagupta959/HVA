@@ -25,6 +25,7 @@
 
 .row {
     margin-bottom: 20px;
+    display: flex;
 }
 
 .main-content {

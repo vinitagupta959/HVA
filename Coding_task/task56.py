@@ -5,19 +5,21 @@
 # 5 4 4 7 6 3 2 4 6 8 6 3 6 8 5
 # Sample Output: 
 # 4
+a = list(map(int, input().split()))
+max = 1
+current= 1
+i = 1
 
-arr=list(map(int,input().split()))
-max=1
-current=1
-i=1
-while i<len(arr):
-    # yaha pr hum i=1 kiye or jab hum i-1 karenge to vo just i ki rwscet ki value ke just ek km valur  dekhega kyuki sub array ek continues form hota hai 
-    if arr[i]>arr[i-1]:
-        current+=1
+while i < len(a):
+    if a[i] > a[i - 1]:
+        current += 1
     else:
-        max=current
-        current=1
-    i+=1
-if current>max:
-    max=current
+        if current > max_length:
+            max_length = current 
+        current = 1
+    i += 1
+
+if current > max:
+    max = current 
+
 print(max)

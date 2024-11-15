@@ -8,12 +8,19 @@
 #   ****
 #  *****
 # ******
-num=int(input())
-i=0
-while i<num:
-    i=num
-    j=0
-    while j<i:
-        print(" ",end="")
-        j+=1
+num = int(input())
+i = 1
+while i <= num:
+    spaces = num - i
+    stars = i
+    j = 0
+    while j < spaces:
+        print(" ", end="")
+        j += 1
+    k = 0
+    while k < stars:
+        print("*", end="")
+        k += 1
+    print()
+    i += 1
 

@@ -28,5 +28,3 @@ newEmployee.displaySalary();
 manager.introduce();
 manager.displaySalary();
 
-
-

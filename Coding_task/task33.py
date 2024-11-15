@@ -6,21 +6,22 @@
 # Yes
 
 
+ 
 num=int(input())
 num1=num
 num2=num1
 rem=0
 count=0
 sum=0
-while num>0:
-    num=num//10
-    count+=1
 while num1>0:
-    rem=num1%10
-    sum+=rem**count
     num1=num1//10
+    count+=1
+while num2>0:
+    rem=num2%10
+    sum+=rem**count
+    num2=num2//10
 print(sum)
-if sum==num2:
+if sum==num:
     print("Yes")
 else:
     print("NO")
