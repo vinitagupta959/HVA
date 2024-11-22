@@ -53,9 +53,3 @@ console.log(belowFreezing);
 
 
 
-
-
-
-
-
-
