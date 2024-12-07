@@ -8,7 +8,7 @@
 arr=list(map(int,input().split()))
 k=int(input())
 i=0
-result="no"
+result="No"
 while i<len(arr):
     if arr[i]>k:
         result=arr[i]

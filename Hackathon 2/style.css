@@ -1,0 +1,240 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(196, 183, 196);
+}
+ 
+#startPage,
+#questionPage,
+#resultPage {
+  background-color: #892dbb;
+  height: 100%;
+  margin: 20% 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 20px;
+  border: 2px solid;
+  border-radius: 12px;
+  box-shadow: 5px 5px 5px 5px #22023f;
+  display: none;
+}
+#startPage {
+  display: block;
+   
+}
+
+#startPage #heading {
+  text-align: center;
+  margin: 2px;
+  padding: 2px;
+  color: rgb(6, 2, 7);
+  text-shadow: 1px 1px rgb(228, 220, 231);
+  background: linear-gradient(to right, white, rgb(140, 52, 216));
+}
+#startPage #inputcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  width: 100%;
+}
+#startPage #inputcontainer input {
+  width: 80%;
+}
+#startPage #inputcontainer label {
+  margin: 5px;
+  width: 100%;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#inputcontainer select {
+  text-align: center;
+  font-weight: 600;
+  width: 60%;
+}
+#inputcontainer option {
+  color: brown;
+  background-color: rgb(129, 148, 142);
+}
+#inputcontainer option:hover {
+  color: antiquewhite;
+  background-color: black;
+  font-size: larger;
+  font-weight: 700;
+}
+#startPage #startButton {
+  font-weight: 700;
+  color: rgb(31, 171, 24);
+  padding: 5px;
+  border: 2px solid none;
+  border-radius: 5px;
+  width: 100%;
+}
+#startPage #startButton:hover {
+  background-color: black;
+  color: antiquewhite;
+}
+#questionPage {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10% 25%;
+  display: none;
+}
+#questionPage #quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+#questionPage #quiz-container #options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  width: 100%;
+}
+#questionPage #quiz-container #options-container button {
+  padding: 5px;
+  border: 2px solid none;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  margin: 2px;
+  background-color: rgb(175, 126, 194);
+  color: rgb(6, 1, 7);
+  font-size: 13px;
+}
+#question{
+  font-size: 20px;
+}
+ 
+#questionPage #quiz-container #options-container button:hover {
+  background-color: black;
+  color: antiquewhite;
+}
+#resultPage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(72, 5, 98);
+  box-shadow: #48046d;
+  padding: 25px;
+  
+  display: none;
+}
+#resultPage #message {
+  text-align: center;
+  font-weight: 700;
+  font-size: 22px;
+  text-shadow: rgb(178, 163, 163) 1px 1px;
+  color: whitesmoke;
+}
+#score {
+  text-align: center;
+  font-weight: 700;
+  font-size: 17px;
+  color: rgb(199, 116, 57);
+}
+#restart,#endGame {
+  padding: 5px;
+  border: 2px solid none;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  margin: 5px;
+  background: linear-gradient(to right, rgb(59, 8, 69), rgb(240, 185, 183));
+  color: rgb(6, 1, 7);
+  display: "none";
+}
+#restart:hover {
+  background-color: black;
+  color: antiquewhite;
+
+}
+#Answer{
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: rgba(248, 247, 247, 0.766);
+}
+
+ 
+#nextQuestion{
+    padding: 5px;
+    margin: 10px;
+    border: 2px solid none;
+    border-radius: 10px;
+    background:linear-gradient(to right, rgb(184, 132, 196), rgb(102, 9, 128));
+    color: rgb(26, 25, 26);
+    font-weight: 700;
+    font-size: 16px;
+    width: 100%;
+}
+#loading,#error{
+    margin: 25% 25%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(17, 16, 17);
+    display: none;
+    text-wrap: nowrap;
+}
+#categoryInfo{
+  color: rgb(194, 192, 58);
+  text-align: center;
+  font-size: 11px;
+}
+@media (max-width: 500px) {
+  #startPage,
+  #questionPage,
+  #resultPage {
+   margin: 15%;
+  }
+  #resultPage {
+    padding: 10px;
+  }
+  #startPage #inputcontainer label {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  #startPage #inputcontainer input {
+    width: 100%;
+  }
+}
+@media (max-width: 300px) {
+  #startPage,
+  #questionPage,
+  #resultPage {
+    margin: 20% 10%;
+  }
+  #resultPage {
+    padding: 10px;
+  }
+  #startPage #inputcontainer label {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  #startPage #inputcontainer input {
+    width: 100%;
+  }
+}

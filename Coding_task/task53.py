@@ -6,10 +6,10 @@
 
 arr=list(map(int,input().split()))
 i=1
-result="yes"
+result="Yes"
 while i<len(arr):
     if arr[i]<arr[i-1]:
-        result="no"
+        result="No"
         break
     i+=1
 print(result)

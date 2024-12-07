@@ -10,7 +10,7 @@ i=0
 result = "No"
 while i<len(arr):
     if arr[i]<0:
-        result="yes"
+        result="Yes"
         break
     i+=1
 print(result)

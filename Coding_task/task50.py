@@ -7,12 +7,12 @@
 
 arr=list(map(int, input().split()))
 i=0
-sum=0
+sumNum=0
 while i<len(arr):
     if arr[i]==0:
         break
     else:
-        sum+=arr[i]
+        sumNum+=arr[i]
     i+=1
-print(sum)
+print(sumNum)
     
