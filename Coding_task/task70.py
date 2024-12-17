@@ -12,3 +12,20 @@
 # 7,5
 # 5
 # Sum = 3 + (3+7) + (3+7+5) + 7 + (7+5) + 5 = 52
+
+arr = list(map(int, input().split()))
+i=0
+j=0
+k=0
+sum=0
+while i<len(arr):
+    k=i
+    j=i
+    while k<len(arr):
+        while j<=k:
+            sum+=arr[j]
+            j+=1
+        k+=1
+        j=i 
+    i+=1
+print(sum)

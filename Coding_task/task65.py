@@ -9,3 +9,23 @@
 # Sample Output 2:
 # No
 # Explanation 2: The given array doesn't contain any duplicate element, hence we print No.
+
+
+arr = list(map(int, input().split()))
+i = 0
+find=False
+while i<len(arr)-1:
+    j=i+1
+    while j<len(arr):
+        if arr[i]==arr[j]:
+            find=True
+            break
+        j+=1
+    if find:
+        print(arr[i])
+        break
+    i+=1
+if not find:
+    print("No")
+
+                

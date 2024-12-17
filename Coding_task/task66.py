@@ -13,3 +13,28 @@
 # Sample Output 2: 
 # Not Possible
 # Explanation 2: No subarray within the given array adds up to 14.
+
+
+
+arr = list(map(int, input().split()))
+target = int(input())
+i = 0
+find="Not Possible"
+while i<len(arr):
+    j=i
+    sum=0
+    arr1=[]
+    while j<len(arr):
+        sum+=arr[j]
+        arr1+=[arr[j]]
+        if sum==target:
+            find=arr1
+            break
+        j+=1
+    i+=1
+if find==arr1:
+    k=0
+    while k<len(arr1):
+        print(arr1[k],end=" ")
+else:
+    print(find)

@@ -10,3 +10,24 @@
 # 7 6 4 9 6
 # Sample Output 2: 
 # No
+
+
+
+arr = list(map(int, input().split()))
+target = list(map(int, input().split()))
+i = 0
+find="No"
+while i<len(arr):
+    j=i
+    k=0
+    while j<len(arr):
+        if arr[j]==target[k]:
+            if k==len(target)-1:
+              find="Yes"
+              break
+            k+=1
+            j+=1
+        else:
+            break
+    i+=1
+print(find)
