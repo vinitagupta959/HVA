@@ -3,44 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Vinita's Portfolio - Software Developer</title>
+    <meta name="description" content="Vinita's portfolio showcasing skills, projects, and contact details as a software developer.">
+    
+    <link rel="stylesheet" href="portfolio.css">
     <!-- Font awsome import -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
     <header class="header">
         <a href="" class="logo">Portfolio</a>
-        <i class="fa-solid fa-bars" class="menu-icon"></i>
+        <i class="fa-solid fa-bars menu-icon"></i>
         <nav class="navbar">
-            <a href="#home" class="active">About</a>
+            <a href="#about" class="active">About Me</a>
             <a href="#skills">skills</a>
             <a href="#project">Project</a>
-            <a href="#contact">contect</a>
+            <a href="#contact">Contact</a>
           
         </nav>
     </header>
-    <section class="home" id="home">
+    <section class="about-me" id="about">
         <div class="home-img">
-            <img src="vini.png" alt="">
+            <img src="profile.jpeg" alt="">
         </div>
         <div class="home-content">
-            <h1>Hi, It's <span>Vinita</span></h1>
-            <h3 class="typing-text">I'm a <span>Software Devloper</span></h3>
+              <h1>Hi, It's <span>Vinita</span></h1>
+              <h3 class="typing-text">I'm a <span>Software Devloper</span></h3>
+              <p>
+                I am a software developer with a strong foundation in front-end and back-end technologies. 
+                I love creating user-friendly websites and applications that solve real-world problems.
+                My journey started with a curiosity for technology, and over time, I developed skills in 
+                <span>HTML, CSS, JavaScript</span>, and <span>Python</span>. I enjoy exploring new frameworks and 
+                keeping up with the latest trends in tech.
+            </p>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit expedita tenetur voluptatibus animi repellat obcaecati aspernatur repudiandae nemo, praesentium facere laboriosam voluptatem reprehenderit, deleniti ducimus atque iste a, sit error! Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsum cupiditate dolores labore eius quaerat nam incidunt quo dolorum laudantium, placeat aut ullam beatae id ab? Enim veniam repellat doloremque, culpa debitis quas excepturi cum, illo est ipsum nesciunt nostrum! Illo excepturi nostrum amet, cupiditate quo inventore suscipit fugiat esse impedit placeat? Eaque quis quisquam et at exercitationem autem debitis rerum illum voluptatum, cum velit itaque explicabo voluptate quas reprehenderit neque! Suscipit, dignissimos, blanditiis adipisci ipsum quia optio qui ex laborum, rem temporibus labore nulla.
+                Beyond coding, I am passionate about learning, teamwork, and finding creative solutions to challenges. 
+                In my free time, I enjoy reading, painting, and exploring new ideas to improve my skills.
             </p>
             <div class="intro">
-            <div class="social-icon">
-                <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                <a href=""><i class="fa-brands fa-github"></i></a>
-                <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-            </div>
-            <div>
-            <a href="#"class="btn">More about me</a>
-          </div>
-          </div>
+              <div class="social-icon">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+              <a href="#" class="btn">More about me</a>
+            </div>            
         </div>
     </section>
     <section class="skills" id="skills">
@@ -128,19 +136,45 @@
             </div>
           </div>
       </section>
-      <section class="contact" id="contact">
-        <h2 class="contact-heading">Contact <span>Me</span></h2>
-        <form action="" method="get">
-            <div class="input-box">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <input type="text" placeholder="Subject">
+      <section class="projects" id="project">
+        <h2 class="projects-heading">My <span>Projects</span></h2>
+        <div class="project-container">
+            <div class="project-card">
+                <h3>Calculator</h3>
+                <p>
+                    A user-friendly calculator built with HTML, CSS, and JavaScript. It supports basic arithmetic operations like addition, subtraction, multiplication, and division. 
+                </p>
+                <a href="https://your-calculator-project-link.com" target="_blank" class="btn">View Project</a>
             </div>
-            <textarea name="" id="" cols="10" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Massage" class="btn">
-        </form>
-      </section>
+            <div class="project-card">
+                <h3>YouTube Clone</h3>
+                <p>
+                    A responsive YouTube clone. using html and css only. it is only fronted part of youtube.
+                </p>
+                <a href="https://your-youtube-clone-project-link.com" target="_blank" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+      <h2 class="contact-heading">Contact <span>Me</span></h2>
+      <form action="" method="get">
+        <div class="input-box">
+          <div class="row">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+          </div>
+          <div class="row">
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="text" placeholder="Subject">
+          </div>
+        </div>
+        <textarea name="message" id="message" cols="10" rows="4" placeholder="Your Message"></textarea>
+        <input type="submit" value="Send Message" class="btn">
+      </form>
+    </section>
+    
+     
     <footer class="footer">
         <div class="social">
             <a href=""><i class="fa-brands fa-github"></i></a>

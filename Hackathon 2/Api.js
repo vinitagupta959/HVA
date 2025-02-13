@@ -71,10 +71,7 @@ async function question(category, player1, player2) {
       hardQuestions[1]
     );
     console.log(finalQuestions);
-    setTimeout(() => {
-      loadingMessage.style.display = "none";
-      showQuestion(finalQuestions, player1, player2);
-    }, 1000);
+    setTimeout(() => {loadingMessage.style.display="none";showQuestion(finalQuestions, player1, player2);}, 1000);
   } catch (error) {
     console.log(error);
     errorMessage.innerText = "Something went wrong";

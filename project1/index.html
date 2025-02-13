@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Work-Planner</h1>
+    </header>
+    <main>
+      <section id="emptyContainer" style="display: none;">
+        <p>No tasks yet. Get started by adding your first task!</p>
+        <br />
+        <button id="emptyButton"><i class="fa-solid fa-plus"></i></button>
+      </section>
+      <section id="filter" style="display: none">
+        <i class="fa-sharp fa-solid fa-filter-circle-xmark"></i>
+        <button id="completedTasks">Completed</button>
+        <button id="pendingTasks">Pending</button>
+        <button id="priorityTasks">Priority</button>
+        <button id="dueDate">Due date</button>
+        <button id="addTask">Add a Task</button>
+      </section>
+      <section id="alltasks" style="display: none"></section>
+    </main>
+    <section id="taskAdding" style="display: none;">
+      <div>
+        Title: <input type="text" id="title" required />
+        <br />
+        Description
+        <textarea name="" id="description" placeholder="Optional"></textarea>
+        <br />
+        <label>Select Priority</label>
+        <input type="radio" name="Priority" value="High" /> High
+        <input type="radio" name="Priority" value="Medium" /> Medium
+        <input type="radio" name="Priority" value="Low" /> Low
+        <br />
+        <label>Repeat</label><br />
+        <input type="radio" name="Repeat" value="Not repeated" /> Not repeated
+        <input type="radio" name="Repeat" value="Daily" /> Daily
+        <input type="radio" name="Repeat" value="Weekly" /> Weekly
+        <input type="radio" name="Repeat" value="Weekend" /> Weekend
+        <input type="radio" name="Repeat" value="Custom" id="customRepeat" /> Custom
+        <br />
+        <input type="date" id="customDate" style="display: none" />
+        <button id="saveButton">Save</button>
+        <button id="cancelButton">Cancel</button>
+      </div>
+    </section>
+    <section id="validation" style="display: none">
+      <p id="titleError" style="display: none">Title is required</p>
+      <p id="priorityError" style="display: none">Choose the priority</p>
+      <p id="repeatError" style="display: none">Choose the repeat option</p>
+      <button id="okayButton" style="display: none">Okay</button>
+    </section>
+
+    <script src="task.js"></script>
+  </body>
+</html>

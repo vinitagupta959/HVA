@@ -223,26 +223,26 @@ aside nav li:hover {
   color: #fff;
 }
 main {
-    position: relative;
-    top: 82px;
-    margin-left: 140px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 5px;
+  position: relative;
+  top: 82px;
+  margin-left: 140px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 5px;
 }
 
 @media (max-width: 850px) {
-    main {
-        margin-left: 140px;
-        grid-template-columns: repeat(2, 1fr);
-    }
+  main {
+    margin-left: 140px;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-    main {
-        margin-left: 50px;
-        grid-template-columns: repeat(3, 1fr);
-    }
+  main {
+    margin-left: 50px;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 article {
