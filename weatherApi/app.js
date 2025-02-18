@@ -64,11 +64,13 @@ async function forecastData(city, apiKey) {
     `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
   );
   const forecast = await response.json();
+  console.log(forecast);
   let forecastContainer = document.getElementById("forecast-items-container");
   forecastContainer.innerHTML = "";
 
   for (let item = 0; item < forecast.list.length; item += 8) {
-    let itemData = forecast.list[item];  
+    let itemData = forecast.list[item]; 
+    console.log(itemData); 
     let itemDate = new Date(itemData.dt_txt);
     itemDate=itemDate.toDateString();  
     let iconCode = itemData.weather[0].icon;  
