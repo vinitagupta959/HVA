@@ -71,22 +71,22 @@
           <div class="radio-container">
             <input
               type="radio"
-              name="Repet"
+              name="repeat"
               value="Not repeated"
               id="notRepeated"
             />
             <label for="notRepeated">Not Repeated</label>
             <input type="radio" name="repeat" value="Daily" id="daily" />
             <label for="daily">Daily</label>
-            <input type="radio" name="repeat" value="Weekly" id="weekly" />
-            <label for="weekly">Weekly</label>
+            <input type="radio" name="repeat" value="Weekdays" id="weekly" />
+            <label for="weekly">Weekdays</label>
             <input type="radio" name="repeat" value="Weekend" id="weekend" />
             <label for="weekend">Weekend</label>
-            <input type="radio" name="repeat" value="Custom" id="customRepet" />
-            <label for="customRepet">Custom</label>
-            <input type="date" id="customDate" style="display: none" />
+           
+            
           </div>
-
+          <label for="customRepet">Due Date</label>
+          <input type="date" id="customDate"/>
           <div class="button-group">
             <button id="saveButton" class="addig-btn">Save</button>
 <button id="updateButton" class="addig-btn"style="display: none;">Update</button>
@@ -97,6 +97,10 @@
 
       <!-- All Tasks Container -->
       <section id="alltasks"class="tasks-container"style="display: none"></section>
+
+      <section id="noTaskContainer" style="display: none;">
+        <div>No Task</div>
+      </section>
 
      
     </main>

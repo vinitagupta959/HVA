@@ -6,7 +6,7 @@ font-family: Arial, sans-serif;
 }
 
 body{
-    background: url(image/bg.png);
+    background: url(image/image.png);
     width: 100%;
     height: 100vh;
     background-position: center;
@@ -76,6 +76,7 @@ body::before{
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    margin-top: 50%;
 }
 
 
@@ -305,8 +306,12 @@ body::before{
   }
    
   .task-desc {
+    width: 100%;
     font-size: 16px;
     color: #494343;
+    text-wrap: wrap;
+    overflow-x: hidden;
+    
   }
    
   .task-priority {
@@ -317,7 +322,24 @@ body::before{
     display: inline-block;
   }
   
-  
+  #noTaskContainer{
+    height: 80%;
+    width: 100%;
+     margin-top: 5%;
+    font-size: 26px;
+    font-weight: 600;
+    background:linear-gradient(to right, #616bf7, #f0f1f5);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  #noTaskContainer div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35%;
+    padding: 20px;
+  }
   
   /* Responsive Design */
   @media (max-width: 500px) {

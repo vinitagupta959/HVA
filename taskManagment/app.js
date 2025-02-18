@@ -9,6 +9,8 @@
   let alltaskContainer=document.getElementById('alltasks');
   let filterContainer=document.getElementById('filter');
   let addTaskButton=document.getElementById('addTask');
+  let noTaskContainer=document.getElementById('noTaskContainer');
+  
 
 // initilise taskList array else we get localStorage
 let taskList;
@@ -23,7 +25,7 @@ if(localStorage.getItem('taskList')==null){
 taskShow();
 function taskShow(){
     if (taskList.length>0){
-        displayTasks(taskList);
+        taskview();
         filterContainer.style.display="block";
     }
     else{
@@ -31,6 +33,13 @@ function taskShow(){
     }
 }
 
+function taskview(){
+    if (4>taskList.length){
+        displayTasks(taskList);
+    }else{
+        daywise();
+    }
+}
 
 emptyAddbutton.addEventListener('click',function(){
     emptyContainer.style.display='none';
@@ -57,14 +66,11 @@ addTaskButton.addEventListener('click',function(){
 
 // save button click event when we  click in save button in taskAddingContainer
 saveButton.addEventListener('click',function(){
-
 let titleValue=title.value.trim();
 let descriptionValue=description.value.trim();
 let priorityValue=selectPriority();
 let repeatValue=selectRepeat();
-if (repeatValue=='Custom'){
-    repeatValue=takeCustomdate();
-}
+let dueDateValue=takeCustomdate();
 
 
 // validation
@@ -88,8 +94,9 @@ if (priorityValue==undefined){
     alert('Please select priority');
     return;
 }
-if (repeatValue==undefined){
-    alert('Please select repeat');
+ 
+if (repeatValue == undefined && dueDateValue == "") {
+    alert('Please select either Repeat or Due Date');
     return;
 }
 
@@ -99,6 +106,7 @@ let task={
     description:descriptionValue,
     priority:priorityValue,
     repeat:repeatValue,
+    dueDate:dueDateValue,
     completed:false
 };
 
@@ -134,38 +142,29 @@ function selectRepeat(){
     }
 }
 
-document.getElementById('customRepet').addEventListener('click',function(){
-    if (this.checked){
-        document.getElementById('customDate').style.display='block';
-    }
-
-})
+ 
 
 // take custom date
-function takeCustomdate(){
-    let date=document.getElementById('customDate').value;
-
-    // coustom date validation
-    let today=new Date();
-    if(date==""){
-        alert('Please select date');
+   
+function takeCustomdate() {
+    console.log("vini");
+    let dateInput = document.getElementById('customDate').value;
+    console.log(dateInput);
+    
+    let selectedDate = new Date(dateInput);
+    let today = new Date();
+    if (selectedDate < today) {
+        alert('Please select a valid future date');
+        dateInput.value = ""; 
         return;
-    }
-    else if (new Date(date)<today){
-        alert('Please select valid date');
-        document.getElementById('customDate').value = "";;
     }else{
-        return date;
+        return selectedDate;
     }
-
-     
 }
-
 
 // DISPLAY TASKS
 function displayTasks(taskList){
 alltaskContainer.style.display='block';
-
 alltaskContainer.innerHTML="";
 
 for (let i=0; i<taskList.length; i++){
@@ -181,14 +180,22 @@ for (let i=0; i<taskList.length; i++){
         taskClass="complete-btn"
         buttonTxt="Mark as Completed"
     }
-
+   let repeatTxt="";
+   let repeatValue;
+    if (task.repeat==""){
+        repeatTxt="Due Date";
+        repeatValue=task.dueDate;
+    }else{
+        repeatTxt="Repeat";
+        repeatValue=task.repeat;
+    }
  
 alltaskContainer.innerHTML+=`
  <div class="taskItem">
  <h2 id="taskTitle">${task.title}</h2>
  <p id="taskDescription" class="task-desc">${task.description}</p>
  <p"><strong>Priority : </strong>${task.priority}</p>
- <p><strong>Repeat : </strong>${task.repeat}</p>
+ <p"><strong>${repeatTxt} : </strong>${repeatValue}</p>
  <div id=buttons>
  <button class="${taskClass}" onclick="completeTask(${i})">${buttonTxt}</button>
  <button class="edit-btn" onclick="editTask(${i})">Edit</button>
@@ -214,8 +221,6 @@ function completeTask(index){
 // Edit task function
 function editTask(index){
     let task=taskList[index];
-    
-
     // give task value which is alady givee for edit
 
     title.value=task.title;
@@ -234,8 +239,6 @@ function editTask(index){
             repeat[i].checked=true;
         }
     }
-
-   
 updateButton.style.display="block";
 updateButton.onclick=function(){
     updateTask(index);
@@ -315,15 +318,29 @@ alltaskButton.addEventListener('click',function(){
  function priorityTask(){
     let byPriority=[];
     byPriority=taskList.filter(function(task){
-        if (task.priority==="High"){
+        if (task.priority==="High" && task.completed==false){
             return task
         }
-    })
+    });
+    for(let i=0 ;i<taskList.length; i++){
+        if (taskList[i].priority==="Medium" && taskList[i].completed==false){
+            byPriority.push(taskList[i]);
+        }
+    }
+
+    for(let j=0; j<taskList.length; j++){
+        if (taskList[j].priority==="Low" && taskList[j].completed==false){
+            byPriority.push(taskList[j]);
+        }
+    }
+
     if (byPriority.length>0){
         displayTasks(byPriority);
+        noTaskContainer.style.display="none";
         }else{
-            alert('No task');
-            displayTasks(taskList);
+             noTaskContainer.style.display="block";
+        alltaskContainer.style.display="none"
+            alert('No task'); 
         }
     taskAddingContainer.style.display="none";
  };
@@ -337,9 +354,11 @@ alltaskButton.addEventListener('click',function(){
     })
     if (complete.length>0){
         displayTasks(complete);
+        noTaskContainer.style.display="none";
         }else{
-            alert('No task');
-            displayTasks(taskList)
+             noTaskContainer.style.display="block";
+        alltaskContainer.style.display="none"
+            alert('No task'); 
         }
         taskAddingContainer.style.display="none";
  };
@@ -353,9 +372,12 @@ alltaskButton.addEventListener('click',function(){
     })
     if (pending.length>0){
     displayTasks(pending);
+    noTaskContainer.style.display="none";
     }else{
+         noTaskContainer.style.display="block";
+        alltaskContainer.style.display="none"
         alert('No task');
-        displayTasks(taskList)
+       
     }
     taskAddingContainer.style.display="none";
  };
@@ -369,18 +391,20 @@ alltaskButton.addEventListener('click',function(){
         } 
     });
     dueDate.sort(function(a, b) {
-        let dateA = new Date(a.repeat); // Convert to Date object
-        let dateB = new Date(b.repeat); // Convert to Date object
+        let dateA = new Date(a.repeat); 
+        let dateB = new Date(b.repeat); 
 
-        // Compare date with respect to today's date (current date)
-        return dateA - dateB;  // Ascending order (earliest dates first)
+         
+        return dateA - dateB;  
     });
      
     if (dueDate.length>0){
         displayTasks(dueDate);
+        noTaskContainer.style.display="none";
         }else{
-            alert('No task');
-            displayTasks(taskList)
+             noTaskContainer.style.display="block";
+        alltaskContainer.style.display="none"
+            alert('No task'); 
         }
         taskAddingContainer.style.display="none";
  }
@@ -390,6 +414,38 @@ alltaskButton.addEventListener('click',function(){
     taskAddingContainer.style.display="none";
  }
 
+
+
+
+
+// Day  wise task
+function daywise(){
+    let todayTask=[];
+    let today=new Date().toDateString();
+    let day=new Date().getDay();
+    let weekdays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    let Weekend=["Saturday","Sunday"];
+
+    for (let i=0; i<taskList.length; i++){
+        if(taskList[i].repeat=="Daily"){
+            todayTask.push(taskList[i])
+        }else if(taskList[i].repeat==today){
+            todayTask.push(taskList[i]);
+        }else if(taskList[i].repeat=="Weekdays"){
+             if (day<6 || day>0){
+                todayTask.push(taskList[i]);
+             }
+        }else if(taskList[i].repeat=="Weekend"){
+             if (day==6 || day==0){
+                todayTask.push(taskList[i]);
+             };
+        
+     }
+    }
+    console.log("dfkh",todayTask);
+    displayTasks(todayTask)
+    
+}
 
  
 
