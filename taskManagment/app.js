@@ -14,12 +14,13 @@
 let taskList;
 if(localStorage.getItem('taskList')==null){
     taskList=[];
+     
 }else{
     taskList=JSON.parse(localStorage.getItem('taskList'));
     console.log(taskList);
-    taskShow();
 
 }
+taskShow();
 function taskShow(){
     if (taskList.length>0){
         displayTasks(taskList);
