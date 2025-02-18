@@ -50,7 +50,7 @@ body::before{
     color: rgba(14, 13, 13, 0.6);
    margin:auto;
     padding: 20px;
-    background:linear-gradient(to right, #03062c, #d9d6db);
+    background:linear-gradient(to right, #3b43af, #e3c3e6);
     border-radius: 10px;
 }
 
@@ -69,7 +69,10 @@ body::before{
     font-size: 20px;
     box-shadow: 0 2px 5px rgba(232, 240, 235, 0.2);
 }
+#emptyButton:hover{
+    background: linear-gradient(to right, #eeebf3, #260a80);
 
+}
 #emptyContainer div{
     display: flex;
     justify-content: center;
