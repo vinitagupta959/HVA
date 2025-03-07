@@ -1,125 +1,78 @@
- // Function to fetch word data
-async function fetchWordData(word, container) {
-    try {
-      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
-      if (!response.ok) {
-        throw new Error(`Word not found: ${word}`);
-      }
-      const data = await response.json();
-      displayWordData(data, container);
-    } catch (error) {
-      console.error("Error fetching word data:", error);
-      container.innerHTML = `<p>An error occurred: ${error.message}</p>`;
-    }
+let searchInput = document.getElementById('searchInput');
+let searchBtn = document.getElementById('searchButton');
+let wordDataContainer = document.getElementById('wordDataContainer');
+ 
+searchBtn.addEventListener('click', function () {
+  fetchWordData(searchInput.value.trim());
+});
+
+ 
+searchInput.addEventListener('keypress', function (event) {
+  if (event.key === 'Enter') {
+    fetchWordData(searchInput.value.trim());
   }
-  
-  // Function to display word data
-  function displayWordData(data, container) {
+});
+
+async function fetchWordData(word) {
+  if (word === "") {
+    wordDataContainer.innerHTML = `<h2>Please enter a word</h2>`;
+  } else {
     try {
-      const wordInfo = data[0]; // First word object
-  
-      if (!wordInfo) {
-        container.innerHTML = "<p>No data found for the word.</p>";
-        return;
-      }
-  
-      // Handle phonetics
-      let phonetics = "";
-      if (wordInfo.phonetics) {
-        wordInfo.phonetics.forEach((p) => {
-          if (p.text) {
-            phonetics += `${p.text}, `;
-          }
-        });
-        phonetics = phonetics.slice(0, -2) || "Not available"; // Remove trailing comma
-      }
-  
-      const audio = wordInfo.phonetics?.find((p) => p.audio)?.audio || null;
-  
-      // Handle meanings
-      let meaningsHTML = "";
-      let allSynonyms = [];
-      let allAntonyms = [];
-  
-      if (wordInfo.meanings) {
-        wordInfo.meanings.forEach((meaning) => {
-          if (meaning.partOfSpeech === "noun" || meaning.partOfSpeech === "verb") {
-            let definitionsHTML = "";
-            const limitedDefinitions = meaning.definitions.slice(0, 3); // Limit to 3 definitions/examples
-  
-            limitedDefinitions.forEach((def, index) => {
-              const example = def.example ? `<p><strong>Example:</strong> ${def.example}</p>` : "";
-              definitionsHTML += `
-                <li>
-                  <p>${index + 1}. ${def.definition}</p>
-                  ${example}
-                </li>
-              `;
-  
-              // Collect synonyms and antonyms
-              if (Array.isArray(def.synonyms) && def.synonyms.length > 0) {
-                allSynonyms.push(...def.synonyms);
-              }
-              if (Array.isArray(def.antonyms) && def.antonyms.length > 0) {
-                allAntonyms.push(...def.antonyms);
-              }
-            });
-  
-            meaningsHTML += `
-              <div class="meaning">
-                <h3>${meaning.partOfSpeech}</h3>
-                <ul>${definitionsHTML}</ul>
-              </div>
-            `;
-          }
-        });
-      }
-  
-      // Combine synonyms and antonyms
-      const synonymsHTML = allSynonyms.length
-        ? `<p><strong>Synonyms:</strong> ${[...new Set(allSynonyms)].slice(0, 10).join(", ")}</p>`
-        : "<p><strong>Synonyms:</strong> Not available</p>";
-  
-      const antonymsHTML = allAntonyms.length
-        ? `<p><strong>Antonyms:</strong> ${[...new Set(allAntonyms)].slice(0, 10).join(", ")}</p>`
-        : "<p><strong>Antonyms:</strong> Not available</p>";
-  
-      // Render result
-      container.innerHTML = `
-        <h2>${wordInfo.word}</h2>
-        <p><strong>Phonetic:</strong> ${phonetics}</p>
-        ${
-          audio
-            ? `<div class="audio-container">
-                <audio controls>
-                  <source src="${audio}" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-              </div>`
-            : "<p>No audio available.</p>"
+      let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+      let data = await response.json();
+console.log(data);
+      if (data.length > 0) {
+        let wordInfo = data[0];
+
+        let phonetics = "N/A";
+        if (wordInfo.phonetics.length > 0) {
+          phonetics = wordInfo.phonetics[0].text;
         }
-        ${meaningsHTML}
-        <div class="synonyms-antonyms">
-          ${synonymsHTML}
-          ${antonymsHTML}
-        </div>
-      `;
+
+        let meanings = wordInfo.meanings;
+        let content = `<div>
+          <h2>${wordInfo.word}</h2>
+          <p><strong>Phonetics:</strong> ${phonetics}</p>
+        </div>`;
+
+        for (let i = 0; i < meanings.length; i++) {
+          let meaning = meanings[i];
+          let definition = "No definition available";
+          let example = "No example available";
+          let synonyms = "No synonyms available";
+          let antonyms = "No antonyms available";
+
+          if (meaning.definitions.length > 0) {
+            definition = meaning.definitions[0].definition;
+            if (meaning.definitions[0].example) {
+              example = meaning.definitions[0].example;
+            }
+          }
+
+          if (meaning.synonyms.length > 0) {
+            synonyms = meaning.synonyms.join(", ");
+          }
+
+          if (meaning.antonyms.length > 0) {
+            antonyms = meaning.antonyms.join(", ");
+          }
+
+          content += `<div>
+            <h3>${meaning.partOfSpeech}</h3>
+            <p><strong>Meaning:</strong> ${definition}</p>
+            <p><strong>Example:</strong> ${example}</p>
+            <p><strong>Synonyms:</strong> ${synonyms}</p>
+            <p><strong>Antonyms:</strong> ${antonyms}</p>
+          </div>`;
+        }
+
+        wordDataContainer.innerHTML = content;
+      } else {
+        wordDataContainer.innerHTML = `<h2>Word not found</h2>`;
+      }
     } catch (error) {
-      console.error("Error displaying word data:", error);
-      container.innerHTML = "<p>An error occurred while displaying the data.</p>";
+      console.log(error);
+      wordDataContainer.innerHTML = `<h2>Word not found</h2>`;
     }
   }
-  
-  // Event Listener for Search Button
-  document.getElementById("searchButton").addEventListener("click", () => {
-    const word = document.getElementById("searchInput").value.trim();
-    const container = document.getElementById("wordDataContainer");
-  
-    if (!word) {
-      container.innerHTML = "<p>Please enter a word to search.</p>";
-      return;
-    }
-  
-    fetchWordData(word, container);
-  });
-  
+}
