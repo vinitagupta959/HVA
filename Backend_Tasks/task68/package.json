@@ -1,0 +1,11 @@
+{
+  "name": "backend_tasks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "file.js",
+  "scripts": {
+    "start": "node file.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
